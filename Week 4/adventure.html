@@ -1,0 +1,37 @@
+<html>
+
+	<head>
+		<title>Adventure</title>
+	</head>
+	
+	<body onload="startGame()" style="background-color: black;">
+	
+	</body>
+	
+	<script>
+	
+	function startGame() {
+    alert ("You are in a dark room with a flashlight that slowly flickers out ... ");
+	var batteries = prompt("Do you search for batteries? (yes or no)");
+		if(batteries == "yes"){
+			alert("You search around for some batteries ...");
+			alert("You find a desk with a cabinet ...");
+			var cabinet = prompt("Do you open the cabinet? (yes or no)");
+			
+			if(cabinet == "yes"){
+				alert("You peek inside the cabinet for some batteries ...");
+				alert("You find some batteries ...");
+				var insert = prompt("Would you like to insert the batteries? (yes or no)");
+			
+				if(insert == "yes"){
+					alert("Your flashlight works!");
+					alert("Congrats you escape!");
+					}else if (insert == "no") alert("The darkness swarms and overwhelms you ... Game Over!");
+				}else if (cabinet == "no") alert("The darkness swarms and overwhelms you ... Game Over!");	
+			}else if (batteries == "no") alert("The darkness swarms and overwhelms you ... Game Over!");
+	}
+	
+	</script>
+	
+</html>
+

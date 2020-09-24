@@ -1,0 +1,83 @@
+<html>
+
+	<head>
+		<title>rps</title>
+	</head>
+	
+	<body onload="playGame()">
+	
+	<img id="rock" src="rock.png" width="250" height="300" style="cursor: pointer;">
+	<img id="paper" src="paper.png" width="250" height="300" style="cursor: pointer;">
+	<img id="scissors" src="scissors.png" width="250" height="300" style="cursor: pointer;">
+	
+	<p id="you" style="font-size: 50px;" ></p>
+	<p id="cpu" style="font-size: 50px;" ></p>
+	<p id="winner" style="font-size: 100px;" ></p>
+	
+	</body>
+	
+    <script>
+	var userChoice = prompt("Please choose Rock, Paper, or Scissors");
+
+	function getComputerChoice() {
+	  switch(Math.floor(Math.random()*3)) {
+		case 0:
+		  return 'rock';
+		  break;
+		case 1:
+		  return 'scissors';
+		  break;
+		case 2:
+		  return 'paper';
+		  break;
+		};
+	}
+
+	var determineWinner = function(choice1, choice2) {
+		if(choice1 === choice2) {
+		return "The result is a tie!";
+	}
+	if(choice1 === "rock") {
+		if(choice2 === "scissors") {
+			return "You win";
+		} else {
+			return "Computer wins";
+		}
+	}
+	if(choice1 === "paper") {
+		if(choice2 === "rock") {
+			return "You win";
+		} else {
+			if(choice2 === "scissors") {
+				return "Computer wins";
+		}
+	}
+	if(choice1 === "scissors") {
+		if(choice2 === "rock") {
+			return "Computer wins";
+		} else {
+			if(choice2 === "paper") {
+				return "You win";
+			}
+		}
+	}
+	}
+	};
+	console.log("User Choice: " + userChoice);
+	console.log("Computer Choice: " + computerChoice);
+	compare(userChoice, computerChoice);
+
+
+	function playGame() {
+	//var userChoice = getUserChoice();
+	  var computerChoice = getComputerChoice()
+	  
+	  console.log("User Choice: " + userChoice);
+	  console.log("Computer Choice: " + computerChoice);
+	  
+	  document.getElementById("you").innerHTML = "You chose: " + userChoice;
+	  document.getElementById("cpu").innerHTML = "Computer chose: " + computerChoice;
+	  document.getElementById("winner").innerHTML = determineWinner(userChoice, computerChoice);
+	};
+    </script>
+</html>
